@@ -26,31 +26,23 @@ namespace ProblemStatement2 { }
 
         TimeSpan lunchBreak = new TimeSpan(1, 0, 0);
         TimeSpan totalworkHours = (timeOut + timeIn) - lunchBreak;
-
+        
+        
+        Console.WriteLine("-------------------------------------");
         Console.Write($"Your total work hour is: {totalworkHours}");
 
         TimeSpan regularHourStart = new TimeSpan(8, 0, 0);
         TimeSpan regularHourEnd = new TimeSpan(17, 0, 0);
         TimeSpan lateIn = new TimeSpan(0, 0, 0);
         TimeSpan earlyOut = new TimeSpan(0, 0, 0);
-        TimeSpan lateTime = new TimeSpan(0, 0, 0);
-        String status = " ";
+        TimeSpan lateTime = new TimeSpan(0, 30, 0);
+        
 
         if (timeIn > regularHourStart)
         {
             lateIn = timeIn - regularHourStart;
         }
-        if (timeIn >= lunchBreak)
-        {
-            status = "You are late";
-            lateTime = timeIn - regularHourStart;
-        }
-
-        else
-        {
-            status = "Regular Hour";
-
-        }
+      
 
         if (timeOut < regularHourEnd)
         {
@@ -60,6 +52,7 @@ namespace ProblemStatement2 { }
         TimeSpan totalRegularHours = totalworkHours - (lateIn - earlyOut);
 
         Console.WriteLine($"Your total regular hours worked is: {totalRegularHours}");
+        Console.WriteLine($"Your amount of late time is: {lateTime}");
 
 
     }
